@@ -34,7 +34,7 @@ As a metric to evalute, there are two options available, namely 'Peak-Signal-to-
 
 GAN architecture photo: 
 
-<img src ="https://developers.google.com/machine-learning/gan/images/gan_diagram.svg" width = "1000" height = "200" >
+<img src ="https://developers.google.com/machine-learning/gan/images/gan_diagram.svg" width = "1000" height = "200" />
 
 
 ## Preliminary Results
@@ -43,15 +43,19 @@ Summary statistics
 
 Image preprocessing : 
 steps : 
-- The original images are of size (2048, 1080, 3).
+- The actual original images are of size (2048, 1080, 3).
 
 -Cropped the original images to size (256, 256, 3) ( different from shape in SRGAN paper)
 
 - Now, discriminator input will be of shape (256, 256, 3) and generator input is (96, 96, 3) which is downsampled using "bicubic" kernel with factor of "4".   
 
-Images of low res and high res. 
+Sample of high resolution and low resolution images are obtained and as shown in below figure:
 
+<img src ="example_images/lowres/img2.png" width = "400" height = "400" /> <img src ="example_images/highres/img_2.png" width = "400" height = "400" /> 
 
+<img src ="example_images/lowres/img3.png" width = "400" height = "400" /> <img src ="example_images/highres/img_3.png" width = "400" height = "400" /> 
+
+<img src ="example_images/lowres/img10.png" width = "400" height = "400" /> <img src ="example_images/highres/img_10.png" width = "400" height = "400" />
 
 ## References
 
