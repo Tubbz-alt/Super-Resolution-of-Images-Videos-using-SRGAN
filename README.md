@@ -6,22 +6,22 @@
 
 Problem wish to solve :
 
-Data being the modern world's electricity, it's driving as fuel in many applications ranging from Medical, Industries, businesses. One of major issues with systems depending on data is 'Data' itself. There might be a lot of descrepencies in the quality of data available to use. This is true, especially in computer vision field, where the images or videos available to use are not upto the requirement and resulting in less efficiencies of the systems. As the data and technology evolves, there is need of technique that acts as fast fuel for improving the efficiencies of existing or other techniques used for different appilcations. For all the computer vision related problems, images or videos that we input makes a huge deal in alleviating the overall performance. It is highly challenging task to estimate a high-resolution (HR) image from its low-resolution (LR) counterpart. It is often referred to as an 'Super-Resolution' (SR). SR received substantial attention from within the computer vision research community and has a wide range of applications.
+Data being like the modern world's electricity, it's driving as fuel in many applications ranging from Medical, Industries, Businesses. One of major issues with systems depending on data is 'Data' itself. There might be a lot of discrepancies in the quality of data available to use. This is true, especially in computer vision field, where the images or videos available for the use are not upto the requirement and resulting in less efficiencies of the systems. As the data and technology evolves, there is need of technique that make this act as a fast fuel for improving the efficiencies of existing or other techniques used for different appilcations. For all the computer vision related problems, the images or videos that we feed into systems makes a huge deal in alleviating the overall performance. Thus, it is essential to make the images or videos more accurate enough for our tasks. It is highly challenging task to estimate a high-resolution (HR) image from its low-resolution (LR) counterpart and this process of convertion is often referred to as an 'Super-Resolution' (SR) problem. 'Super Resolution' received huge attention from within the computer vision research community in the recent years and has a wide range of applications such as TV resolution or movie resolution, Face Recognition or verification, Autonomous vehicle driving, Medical Imaging,  Security Systems, Gaming and Graphics design, etc.
 
 
 description of proposed methods and datasets:
 
-Initially, the project aims at implementing the SRGAN model to solve Super Resolution(SR) problem. I have taken dataset named 'DIV2K' [[Dataset link]](https://data.vision.ee.ethz.ch/cvl/DIV2K/), which is one of the popular datasets for image resolution task. Later, I try to incorporate other datasets for training so that model become more robust. After dealing with images, I make this entire model to work for videos based on the availability of datasets.
+Initially, the project aims at implementing the SRGAN model to solve Super Resolution(SR) problem. I have taken dataset named 'DIV2K' [[Dataset link]](https://data.vision.ee.ethz.ch/cvl/DIV2K/), which is one of the popular datasets for image resolution task. 'DIV2k' dataset consititute of 800 training, 100 validation, 100 test images .Later, I try to incorporate other datasets for training so that model become more robust. After dealing with images, I make transmission to work with videos based on the availability of datasets.
 
 
-Applications :
+Advantages :
+ 
+storage of images by processing while needed
 
-TV resolution or movie resolution,
-Face Recognition,
-Autonomous vehicle driving,
-Medical, 
-Security Systems,
-Gaming and Graphics design.
+Adapt to new hardware (like improved screen resolution of TV, Theatre, etc)
+
+Make objects to be better distinguishable in images
+
 
 ## Proposed plan of research
 
