@@ -1,6 +1,8 @@
 # Title: Super Resolution of images using SRGAN
 
-## Authors : Srikanth Babu Mandru
+#### Authors : Srikanth Babu Mandru
+
+#### *Proposed as "Quantiphi Project"*
 
 ## Summary 
 
