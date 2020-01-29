@@ -18,11 +18,11 @@ As a metric to evalute, there are two options available, namely 'Peak-Signal-to-
 
 General GAN block diagram is shown in following figure: 
 
-<img src="https://developers.google.com/machine-learning/gan/images/gan_diagram.svg" width = "500" height = "200" />
+<img src="https://developers.google.com/machine-learning/gan/images/gan_diagram.svg" width = "1000" height = "300" />
 
 Generator and discriminator network architectures in SRGAN are as shown in below figure:
 
-<img src="https://www.oreilly.com/library/view/generative-adversarial-networks/9781789136678/assets/fe3eced0-c452-4b7a-9f6d-dd8228048ab9.png" width = "1000" height = "200" />
+<img src="https://www.oreilly.com/library/view/generative-adversarial-networks/9781789136678/assets/fe3eced0-c452-4b7a-9f6d-dd8228048ab9.png" width = "1000" height = "500" />
 
 ## Preliminary Results
 
