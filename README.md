@@ -44,12 +44,14 @@ GAN architecture photo:
 Summary statistics 
 
 Image preprocessing : 
+
 steps : 
-- The actual original images are of size (2048, 1080, 3).
 
--Cropped the original images to size (256, 256, 3) ( different from shape in SRGAN paper)
+- The actual original images are of size (2048, 1080, 3)
 
-- Now, discriminator input will be of shape (256, 256, 3) and generator input is (96, 96, 3) which is downsampled using "bicubic" kernel with factor of "4".   
+- Cropped the original images to size (256, 256, 3) ( different from shape in SRGAN paper)
+
+- Now, discriminator input will be of shape (256, 256, 3) and generator input is (96, 96, 3) which is downsampled using "bicubic" kernel with factor of "4"   
 
 Sample of high resolution and low resolution images are obtained and as shown in below figure:
 
