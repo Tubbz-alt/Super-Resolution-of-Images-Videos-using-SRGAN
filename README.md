@@ -32,7 +32,7 @@ As the preliminary steps, I have implemented most of the image preprocessing par
 
 - Cropped the original images to size (256, 256, 3) ( different from shape in SRGAN paper)
 
-- Now, discriminator input will be of shape (256, 256, 3) and generator input is (96, 96, 3) which is downsampled using "bicubic" kernel with factor of "4"   
+- Now, discriminator input will be of shape (256, 256, 3) and generator input is (64, 64, 3) which is downsampled version of discriminator input using "bicubic" kernel with factor of "4"   
 
 Some of the sample low and high resolution images that are obtained from preprocessing steps are as shown in below figure:
 
