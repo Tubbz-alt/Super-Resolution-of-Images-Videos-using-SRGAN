@@ -6,22 +6,15 @@
 
 ## Summary 
 
-problem to solve and description of datasets- 
-
 Super-resolution (SR) of images refers to process of generating or reconstructing the high-resolution (HR) images from low-resolution images (LR). This project mainly focuses on dealing with this problem of super-resolution using generative adversarial network, named SRGAN, a deep learning framework. In this project, SRGAN is trained and tested using the 'DIV2K' and 'MS-COCO' datasets [6] (specifically, 2017-validation images dataset) which are popular datasets for image resolution tasks. Images from both the datasets were merged and now data consists of:
 1. 5800 training images (800 images from DIV2K and 5K images from MS-COCO)
 2. 100 validation images (100 images from DIV2K validation set)
-
-Non-technical description of methods
 
 Most of this project is built upon the ideas of SRGAN paper [2] which showed better super-resolution of images in terms of perceptual quality compared to other deep learning models. Based on results from [2] and [5], I have combined both MSE and VGG losses, named it as “Per-Pix loss” that stands for ‘Perceptual and Pixel’ qualities of image, which resulted in decent PSNR scores with less iterations of training. At present, in phase 2 of this project, I will train the models that I have implemented in phase 1 using the Google cloud AI platform and compare the performance between those models. Later, I deploy the model on cloud and try to create an application for real-world users. Finally, if it is feasible, I will super-resolve the videos [6] (video dataset consists of 4 videos) using the best model.
 
 ## Proposed plan of research
 
-Phase 1 accomplishment brief - 
 In first phase of this project, I have implemented the SRGAN which is a GAN-based model using TensorFlow, Keras and other Machine learning APIs. I choose Peak signal-to-noise-ratio [PSNR](https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio) as the key metric to evaluate the model's performance. Proposed a new loss, namely 'Per-Pix' loss, for SRGAN model training and observed significant improvement in PSNR values with fewer iterations of training compared to model trained with 'Perceptual Loss'.
-
-phase 2 plan - Model training on cloud (GPU), video, results visualization-tensorboard
 
 Now, in second phase of this project, I pickup from the first phase results and focus on comparing the model performances trained separately with 'Per-Pix', 'Perceptual', 'MSE' losses through 'PSNR' metric. Apart from this, I will do research on using various other model architectures. There is also a great need for proper metric to evaluate the image quality. For this, currently, I found the paper [8] which detailed about different metrics that can be used for evaluating the image resolution quality. In this paper, they have described how various metrics are related to the perceptual quality. So, I will study further on papers [3] and [8] to get deeper understanding and arrive at right approaches in order to solve super-resolution problem. If I find any reasonable approach or ideas that would impact the performance, I will incorporate those into the project.
 
@@ -48,27 +41,14 @@ By the end of phase 1, after training the models for 6 epochs (each epoch means 
 
 To understand the perceptual quality of images, I have used the low-resolution version of validation images to generate the super-resolution images using both the models trained with "Perceptual Loss" and "Per-Pix Loss". From the figures below, we can infer that "Per-Pix" loss is pushing the model performance significantly resulting in obtaining the images close to the real images. The real high-resolution validation images and their corresponding generated images from both models trained with "Perceptual loss" and "Per-Pix loss" are as shown in below figures:
 
-<p>
-<figure>
 <img src ="downloaded images/perception_results/validation_samples_highres.png" width = "800" height = "400" /> 
-<figcaption>Real high-resolution validation images:</figcaption>
-</figure>
-</p>
 
 
-<p>
-<figure>
-<img src ="downloaded images/perception_results/valid_images_400.png" width = "800" height = "400" /> 
-<figcaption>Generated images from SRGAN model trained with Perceptual loss: </figcaption>
-</figure>
-</p>
+<img src ="downloaded images/perception_results/valid_images_400.png" width = "800" height = "400" />
 
-<p >
-<figure>
+
 <img src ="downloaded images/perception_results/valid_images_500.png" width = "800" height = "400" /> 
-<figcaption>Generated images from SRGAN model trained with Per-Pix loss:</figcaption>
-</figure>
-</p>
+
 
 ## References
 
