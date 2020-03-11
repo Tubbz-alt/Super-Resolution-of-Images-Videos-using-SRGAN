@@ -43,10 +43,22 @@ Initially, I have implemented most of the image preprocessing part of project so
 
 Some of the sample low and high resolution images that are obtained from preprocessing stage are as shown in below figure:
 
-<img src ="downloaded_images/image_preprocess/low_res1.png" width = "400" height = "400" /> <img src ="downloaded_images/image_preprocess/high_res1.png" width = "400" height = "400" /> 
+<img src ="downloaded images/image_preprocess/low_res1.png" width = "400" height = "400" /> <img src ="downloaded  images/image_preprocess/high_res1.png" width = "400" height = "400" /> 
 
-After training for 6 epochs (each epoch is training once over entire dataset), I have obtained the results of PSNR as follows:
+After training for 6 epochs (each epoch means training once over the entire dataset), I have obtained the results of PSNR as follows:
 
+<img src ="downloaded images/psnr_results/epochs_srganloss_result.png" width = "400" height = "400" /> <img src ="downloaded_images/image_preprocess/high_res1.png" width = "400" height = "400" /> 
+
+<img src ="downloaded images/psnr_results/epochs_perpixloss_result.png" width = "400" height = "400" /> <img src ="downloaded_images/image_preprocess/high_res1.png" width = "400" height = "400" /> 
+
+To understand the perceptual quality of images, I have used the low-resolution version of validation images to generate the super-resolution images using both the models trained with "Perceptual Loss" and "Per-Pix Loss". The original high-resolution validation images and their corresponding generated images are as follows:
+
+<img src ="downloaded images/perception_results/validation_samples_highres.png" width = "400" height = "400" /> <img src ="downloaded_images/image_preprocess/high_res1.png" width = "400" height = "400" /> 
+
+
+<img src ="downloaded images/perception_results/valid_images_400.png" width = "400" height = "400" /> <img src ="downloaded_images/image_preprocess/high_res1.png" width = "400" height = "400" /> 
+
+<img src ="downloaded images/perception_results/valid_images_500.png" width = "400" height = "400" /> <img src ="downloaded_images/image_preprocess/high_res1.png" width = "400" height = "400" /> 
 
 
 ## References
