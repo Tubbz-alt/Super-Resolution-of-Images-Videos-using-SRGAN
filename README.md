@@ -23,7 +23,7 @@ Coming to training stage of this project, it requires a huge effort to train the
 
 ## Preliminary Results
 
-Initially, I have implemented most of the image preprocessing part of project so that images data fits to our model seamlessly. The steps that I have followed are as follows :
+Initially, I have implemented the image preprocessing part of project so that images data fits to our model seamlessly. The steps that I have followed are as follows :
 
 - The actual original images are of size (2048, 1080, 3)
 
@@ -39,7 +39,7 @@ By the end of phase 1, after training the models for 6 epochs (each epoch means 
 
 <img src ="downloaded images/psnr_results/epochs_srganloss_result.png" width = "400" height = "400" /> <img src ="downloaded images/psnr_results/epochs_perpixloss_result.png" width = "400" height = "400" /> 
 
-To understand the perceptual quality of images, I have used the low-resolution version of validation images to generate the super-resolution images using both the models trained with "Perceptual Loss" and "Per-Pix Loss". From the figures below, we can infer that "Per-Pix" loss is pushing the model performance significantly resulting in obtaining the images close to the real images. The real high-resolution validation images and their corresponding generated images from both models trained with "Perceptual loss" and "Per-Pix loss" are as shown in below figures:
+To understand the perceptual quality of generated super-resolution images, I have used the low-resolution version of validation images to generate the super-resolution images using both the models trained with "Perceptual Loss" and "Per-Pix Loss". From the figures below, we can infer that "Per-Pix" loss is pushing the model performance significantly resulted in obtaining the images close to the real images. The real high-resolution validation images and their corresponding generated images from both models trained with "Perceptual loss" and "Per-Pix loss" are as shown in below figures:
 
 Figure 1 : Real high-resolution validation images
 
