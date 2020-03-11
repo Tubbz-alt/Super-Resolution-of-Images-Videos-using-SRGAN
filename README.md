@@ -36,11 +36,6 @@ As the preliminary steps, I have implemented most of the image preprocessing par
 
 Some of the sample low and high resolution images that are obtained from preprocessing steps are as shown in below figure:
 
-<img src ="example_images/lowres/img2.png" width = "400" height = "400" /> <img src ="example_images/highres/img_2.png" width = "400" height = "400" /> 
-
-<img src ="example_images/lowres/img3.png" width = "400" height = "400" /> <img src ="example_images/highres/img_3.png" width = "400" height = "400" /> 
-
-<img src ="example_images/lowres/img10.png" width = "400" height = "400" /> <img src ="example_images/highres/img_10.png" width = "400" height = "400" />
 
 ## References
 
