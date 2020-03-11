@@ -6,9 +6,17 @@
 
 ## Summary 
 
-Data being like the modern world's electricity, it's driving as fuel in many applications ranging from Medical, Industries, Businesses. One of the major issues with systems depending on data is "DATA" itself. There might be a lot of discrepancies in the quality of data available to use. This is true, especially in the computer vision field, where the images or videos available for the use are not up to the requirement and resulting in low efficiencies of the systems. As the data and technology evolve, there is need for a technique that makes this data act as a power-fuel for improving the efficiencies of existing or other techniques used for different applications. For all the computer vision-related problems, the images or videos that we feed into systems makes a huge deal in alleviating the overall performance. Thus, it is essential to make the images or videos phenomenal for the successful accomplishment of our tasks. So, this project exactly tries to solve the same problem. It is a highly challenging task to estimate a high-resolution (HR) image from its corresponding low-resolution (LR) image and this process of resolving the image is often referred to as a 'Super-Resolution (SR)' problem. 'Super-Resolution' received huge attention from within the computer vision research community in the recent years and has a wide range of applications such as Autonomous vehicle driving, Face Recognition or verification, video resolution tasks, Medical Imaging, Security Systems, Gaming and Graphics design and more.
+Super-resolution (SR) of images refers to process of generating or reconstructing the high- resolution (HR) images from low-resolution images (LR). This project mainly focuses on dealing with this problem of super-resolution using generative adversarial network, named SRGAN, a deep learning framework. In this project, SRGAN is trained and tested using the 'DIV2K' and MS-COCO datasets which are popular datasets for image resolution tasks. Placed 
+ dataset consists of:
+1. 800 training
+2. 100 validation images
+Most of this project is built upon the ideas of
+SRGAN paper [2]. Apart from that, I did some research on comparing the results obtained using different objective functions available in TensorFlow’s “tfgan” library for loss optimizations of SRGAN. Different model implementations are evaluated through the peak signal-to-noise ratio (PSNR) scores as metric. Intuitively, this metric does not capture the essence of perceptual quality of image. However, it is comparatively easy to use PSNR when evaluating the performance while training the model compared to mean-opinion-score (MOS) that has been used by authors of paper [2]. This paper also proposes a method of super-resolution using SRGAN with “Per-Pix loss” which I defined in the losses section of this paper. Based on results from [2] and [5], I have combined both MSE and VGG losses, named it as “Per-Pix loss” that stands for ‘Perceptual and Pixel’ qualities of image, which resulted in decent PSNR scores with less iterations of training. Finally, achieved the PSNR value peaked at approximately “14.5” and “14.05” on training and validation datasets respectively.
 
-Initially, the project aims at implementing the SRGAN model to solve Super Resolution(SR) problem and then take it to large scale data training using google cloud. I took a dataset named 'DIV2K' [Dataset link], which is one of the popular datasets for image resolution tasks. 'DIV2k' dataset constitutes of 800 training, 100 validation, and 100 test images. Later, I try to incorporate other datasets for training so that the model becomes more robust. After dealing with the images, I will proceed to work with videos based on the availability of datasets.
+Datasets: 
+1. DIV2K Dataset [Dataset-link](https://data.vision.ee.ethz.ch/cvl/DIV2K/)
+2. MS-COCO Dataset [Dataset-link](http://cocodataset.org/#download)
+
 
 ## Proposed plan of research
 
