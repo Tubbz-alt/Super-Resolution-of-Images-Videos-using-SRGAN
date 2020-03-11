@@ -1,4 +1,4 @@
-# Title: Super Resolution of images using SRGAN
+# Title: Super Resolution of images/videos using SRGAN
 
 #### Authors : Srikanth Babu Mandru
 
@@ -41,11 +41,16 @@ By the end of phase 1, after training the models for 6 epochs (each epoch means 
 
 To understand the perceptual quality of images, I have used the low-resolution version of validation images to generate the super-resolution images using both the models trained with "Perceptual Loss" and "Per-Pix Loss". From the figures below, we can infer that "Per-Pix" loss is pushing the model performance significantly resulting in obtaining the images close to the real images. The real high-resolution validation images and their corresponding generated images from both models trained with "Perceptual loss" and "Per-Pix loss" are as shown in below figures:
 
+Figure 1 : Real high-resolution validation images
+
 <img src ="downloaded images/perception_results/validation_samples_highres.png" width = "800" height = "400" /> 
 
 
+Figure 2 : Generated images from model trained with "Perceptual" loss
+
 <img src ="downloaded images/perception_results/valid_images_400.png" width = "800" height = "400" />
 
+Figure 3 : Generated images from model trained with "Per-Pix" loss
 
 <img src ="downloaded images/perception_results/valid_images_500.png" width = "800" height = "400" /> 
 
