@@ -43,7 +43,7 @@ Initially, I have implemented most of the image preprocessing part of project so
 
 Some of the sample low and high resolution images that are obtained from preprocessing stage are as shown in below figure:
 
-<img src ="example_images/lowres/img2.png" width = "400" height = "400" /> <img src ="example_images/highres/img_2.png" width = "400" height = "400" /> 
+<img src ="downloaded_images/image_preprocess/low_res1.png" width = "400" height = "400" /> <img src ="downloaded_images/image_preprocess/high_res1.png" width = "400" height = "400" /> 
 
 After training for 6 epochs (each epoch is training once over entire dataset), I have obtained the results of PSNR as follows:
 
