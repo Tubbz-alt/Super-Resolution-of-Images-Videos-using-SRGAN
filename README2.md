@@ -20,6 +20,9 @@ Non-technical description of methods
 Phase 1 accomplishment brief - 
 In first phase of this project, I have implemented the SRGAN which is a GAN-based model using TensorFlow, Keras and other Machine learning APIs. I choose Peak signal-to-noise-ratio [PSNR](https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio) as the key metric to evaluate the model's performance. Introduced a new loss, namely 'Per-Pix' loss, for SRGAN model training and observed significant improvement in PSNR values with fewer iterations of training compared to model trained with 'Perceptual Loss'. 
 
+Need for metric, loss and architecture:
+ While doing research, I found the paper [8] which detailed about different metrics that can be used for evaluating the image resolution quality.
+
 
 phase 2 plan - 
 Now, in second phase of this project, I will focus on comparing the models trained between 'Per-Pix', 'Perceptual', 'MSE' losses through 'PSNR'. Apart from this, I will do research on various other models. Tensorboard will be implemented as part of visualisation tool, which is sophisticated and better to interpret the results while training.
@@ -64,6 +67,7 @@ After training for 6 epochs (each epoch is training once over entire dataset), I
 
 [7] Agustsson, Eirikur and Timofte, Radu. “NTIRE 2017 Challenge on Single Image Super-Resolution: Dataset and Study”, The IEEE Conference on Computer Vision and Pattern Recognition (CVPR) Workshops, July 2017.
 
+[8] C.Y. Yang, C. Ma, and M.H. Yang. Single-image super-resolution:A benchmark. In European Conference on Computer Vision (ECCV),pages 372–386. Springer, 2014.
 
 
 **Advantages of Super-Resolution:**
