@@ -8,7 +8,7 @@
 
 problem to solve and description of datasets- 
 
-Super-resolution (SR) of images refers to process of generating or reconstructing the high-resolution (HR) images from low-resolution images (LR). This project mainly focuses on dealing with this problem of super-resolution using generative adversarial network, named SRGAN, a deep learning framework. In this project, SRGAN is trained and tested using the 'DIV2K' and 'MS-COCO' datasets [[6]](6) (specifically, 2017-validation images dataset) which are popular datasets for image resolution tasks. Images from both the datasets were merged and now data consists of:
+Super-resolution (SR) of images refers to process of generating or reconstructing the high-resolution (HR) images from low-resolution images (LR). This project mainly focuses on dealing with this problem of super-resolution using generative adversarial network, named SRGAN, a deep learning framework. In this project, SRGAN is trained and tested using the 'DIV2K' and 'MS-COCO' datasets (specifically, 2017-validation images dataset) which are popular datasets for image resolution tasks. Images from both the datasets were merged and now data consists of:
 1. 5800 training images (800 images from DIV2K and 5K images from MS-COCO)
 2. 100 validation images (100 images from DIV2K validation set)
 
@@ -59,7 +59,7 @@ To understand the perceptual quality of images, I have used the low-resolution v
 </p>
 
 
-<p align='center'>
+<p>
 <figure>
 <img src ="downloaded images/perception_results/valid_images_400.png" width = "800" height = "400" /> 
 <figcaption>Generated images from SRGAN model trained with Perceptual loss: </figcaption>
@@ -69,7 +69,7 @@ To understand the perceptual quality of images, I have used the low-resolution v
 <p >
 <figure>
 <img src ="downloaded images/perception_results/valid_images_500.png" width = "800" height = "400" /> 
-<figcaption align='center'>Generated images from SRGAN model trained with Per-Pix loss:</figcaption>
+<figcaption>Generated images from SRGAN model trained with Per-Pix loss:</figcaption>
 </figure>
 </p>
 
