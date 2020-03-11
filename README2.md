@@ -14,18 +14,17 @@ Super-resolution (SR) of images refers to process of generating or reconstructin
 
 Non-technical description of methods
 
+
 ## Proposed plan of research
 
 Phase 1 accomplishment brief - 
-In first phase of this project, I have implemented the SRGAN model using TensorFlow, Keras and other Machine learning APIs. I took Peak signal-to-noise-ratio [PSNR](https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio) as the key metric to evaluate the model's performance. Introduced the new loss, namely 'Per-Pix' loss, for SRGAN model training and observed significant improvement in PSNR values with fewer iterations of training compared to model trained with 'Perceptual Loss'. 
+In first phase of this project, I have implemented the SRGAN which is a GAN-based model using TensorFlow, Keras and other Machine learning APIs. I choose Peak signal-to-noise-ratio [PSNR](https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio) as the key metric to evaluate the model's performance. Introduced a new loss, namely 'Per-Pix' loss, for SRGAN model training and observed significant improvement in PSNR values with fewer iterations of training compared to model trained with 'Perceptual Loss'. 
 
 
 phase 2 plan - 
-Now, in second phase of this project, I will focus on comparing the models trained between 'Per-Pix', 'Perceptual', 'MSE' losses. 
+Now, in second phase of this project, I will focus on comparing the models trained between 'Per-Pix', 'Perceptual', 'MSE' losses through 'PSNR'. Apart from this, I will do research on various other models. Tensorboard will be implemented as part of visualisation tool, which is sophisticated and better to interpret the results while training.
 
-All of the training will be done using the Google cloud platform (GCP) AI services and products.
-
-Google cloud platform training
+It requires a huge effort to train this massive models. Thus, all of the training will be done using the Google cloud platform (GCP) AI services and products. During training, I make use of GPU (CUDA , cuDNN) toolkits to leverage faster training. After the training stage, the model will be deployed using google cloud AI platform for future predictions. Further, I am planning to deploy the model as an application to real-world users using TensorFlow Lite.
 
 
 
@@ -42,6 +41,9 @@ Initially, I have implemented most of the image preprocessing part of project so
 Some of the sample low and high resolution images that are obtained from preprocessing stage are as shown in below figure:
 
 <img src ="example_images/lowres/img2.png" width = "400" height = "400" /> <img src ="example_images/highres/img_2.png" width = "400" height = "400" /> 
+
+After training for 6 epochs (each epoch is training once over entire dataset), I have obtained the results of PSNR as follows:
+
 
 
 ## References
