@@ -2,6 +2,7 @@
 import tensorflow as tf
 import matplotlib.pyplot as plt
 import os
+import random
 
 def preprocess_load(root_path, hr_image_shape = None , lr_image_shape = None, original_image_shape = None , show_images = False , data_path = None):
     
@@ -18,8 +19,12 @@ def preprocess_load(root_path, hr_image_shape = None , lr_image_shape = None, or
       # Use `convert_image_dtype` to convert to floats in the [0,1] range.
       img = tf.image.convert_image_dtype(img, tf.float32)
       
+      # seed_value  = tf.random.uniform(shape = [1], minval=0, maxval=100, dtype=tf.dtypes.int32, name="Random_Number_Gen")
+      
+      seed_value = random.randint(1, 100)
+        
       # resize the image to the desired size.
-      hr_img = tf.image.resize_with_crop_or_pad(img, IMG_HEIGHT , IMG_WIDTH) 
+      hr_img = tf.image.random_crop(img, size = [IMG_HEIGHT , IMG_WIDTH, 3] , seed = seed_value, name= "Random_Crop") 
 
       # lr_img = tf.image.resize(img, [ int(original_img_shape[1]//4), int(original_img_shape[0]//4) ]  , method = 'bicubic' ) 
       # scipy.misc.imresize
@@ -72,15 +77,15 @@ def preprocess_load(root_path, hr_image_shape = None , lr_image_shape = None, or
 
     list_ds = tf.data.Dataset.list_files(str(root_path + data_path), shuffle = False)
     AUTOTUNE = tf.data.experimental.AUTOTUNE
-    images_ds = list_ds.map(process_path, num_parallel_calls= AUTOTUNE)
+    images_ds = list_ds.map(process_path)
 
   # Get the individual datasets
     lr_img_ds = images_ds.interleave(lambda lr_img,hr_img: tf.data.Dataset.from_tensors(lr_img))
     hr_img_ds = images_ds.interleave(lambda lr_img,hr_img: tf.data.Dataset.from_tensors(hr_img))
 
   # modify range of values
-    highres_images = hr_img_ds.map(_hr_preprocess, num_parallel_calls=tf.data.experimental.AUTOTUNE)
-    lowres_images = lr_img_ds.map(_lr_preprocess, num_parallel_calls=tf.data.experimental.AUTOTUNE)
+    highres_images = hr_img_ds.map(_hr_preprocess)
+    lowres_images = lr_img_ds.map(_lr_preprocess)
 
     if show_images == True:
       ### show high resolution images 

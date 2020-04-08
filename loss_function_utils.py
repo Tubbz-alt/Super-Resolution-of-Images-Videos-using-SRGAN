@@ -85,66 +85,128 @@ def discriminator_loss(gan_model):
         return hr_loss + sr_loss
 
 def srgan_loss(gan_model):
-    with tf.name_scope("SRGAN_Loss_Block"):
-        # Define non-adversarial loss - for example "VGG loss" and "MSE loss"
+  with tf.name_scope("SRGAN_Loss_Block"):
+    # Define non-adversarial loss - for example "VGG loss" and "MSE loss"
 
-        non_adversarial_loss = content_loss(gan_model.real_data, gan_model.generated_data )
+    non_adversarial_loss = content_loss(gan_model.real_data, gan_model.generated_data )
+    
+    # non_adversarial_loss_MSE = tf.keras.losses.mean_squared_error(gan_model.real_data, gan_model.generated_data) 
 
-        # non_adversarial_loss_MSE = tf.keras.losses.mean_squared_error(gan_model.real_data, gan_model.generated_data) 
+    # Define generator loss
+    generator_loss_value =  0.001 * generator_loss(gan_model.discriminator_gen_outputs )
+    # generator_loss = tfgan.losses.modified_generator_loss(gan_model)
 
-        # Define generator loss
-        generator_loss_value =  0.001 * generator_loss(gan_model.discriminator_gen_outputs )
-        # generator_loss = tfgan.losses.modified_generator_loss(gan_model)
+    # Combine these losses - you can specify more parameters
+    # Exactly one of weight_factor and gradient_ratio must be non-None
 
-        # Combine these losses - you can specify more parameters
-        # Exactly one of weight_factor and gradient_ratio must be non-None
-
-        combined_loss = non_adversarial_loss + generator_loss_value
+    combined_loss = non_adversarial_loss + generator_loss_value
 
     return combined_loss
     
     
 def perpix_loss(gan_model):
-    with tf.name_scope("PERPIX_Loss_Block"):
-        
-        # Define non-adversarial loss - for example "VGG loss" and "MSE loss"
 
-        non_adversarial_loss = content_loss(gan_model.real_data, gan_model.generated_data)
+    # Define non-adversarial loss - for example "VGG loss" and "MSE loss"
 
-        meansquarederror_obj2 = MeanSquaredError(reduction=losses_utils.ReductionV2.NONE)
-        per_replica_loss2 = meansquarederror_obj2(gan_model.real_data, gan_model.generated_data)
-        non_adversarial_loss_MSE = compute_avg_loss_gpu(per_replica_loss2 )
+    non_adversarial_loss = content_loss(gan_model.real_data, gan_model.generated_data)
+    
+    non_adversarial_loss_MSE = tf.keras.losses.mean_squared_error(gan_model.real_data, gan_model.generated_data) 
 
-        # Define generator loss
-        generator_loss_value =  0.001 * generator_loss(gan_model.discriminator_gen_outputs )
-        # generator_loss = tfgan.losses.modified_generator_loss(gan_model)
+    # Define generator loss
+    generator_loss_value =  0.001 * generator_loss(gan_model.discriminator_gen_outputs )
+    # generator_loss = tfgan.losses.modified_generator_loss(gan_model)
 
-        # Combine these losses - you can specify more parameters
-        # Exactly one of weight_factor and gradient_ratio must be non-None
+    # Combine these losses - you can specify more parameters
+    # Exactly one of weight_factor and gradient_ratio must be non-None
 
-        combined_loss = non_adversarial_loss + non_adversarial_loss_MSE + generator_loss_value
+    combined_loss = non_adversarial_loss + non_adversarial_loss_MSE + generator_loss_value
 
 
     return combined_loss
     
+    
 def MSE_loss(gan_model):
     with tf.name_scope("MSE_Loss_Block"):
-        
         # Define non-adversarial loss - for example "VGG loss" and "MSE loss"
 
         meansquarederror_obj2 = MeanSquaredError(reduction=losses_utils.ReductionV2.NONE)
         per_replica_loss2 = meansquarederror_obj2(gan_model.real_data, gan_model.generated_data)
         non_adversarial_loss_MSE = compute_avg_loss_gpu(per_replica_loss2 )
-
+        
+        
         # Define generator loss
-        generator_loss_value =  0.001 * generator_loss(gan_model.discriminator_gen_outputs )
+        generator_loss_value =  1e-3 * generator_loss(gan_model.discriminator_gen_outputs )
         # generator_loss = tfgan.losses.modified_generator_loss(gan_model)
 
         # Combine these losses - you can specify more parameters
         # Exactly one of weight_factor and gradient_ratio must be non-None
 
         combined_loss = non_adversarial_loss_MSE + generator_loss_value
+    return combined_loss
+    
+    
+    
+#### NEW LOSS EXPERIMENTS
+
+def content_kldiv_loss(hr, sr):
+    with tf.name_scope("Content_KLDIV_Loss_Block"):
+          # sr_preprocessed = preprocess_input(sr)
+          # hr_preprocessed = preprocess_input(hr)
+          
+          sr_resized = sr[:, :64, :64, :]
+          hr_resized = hr[:, :64, :64, :]
+          
+          sr_features = vgg_layers(sr_resized) / 12.75
+          hr_features = vgg_layers(hr_resized) / 12.75
+          
+          # sr_features_mu = tf.math.reduce_mean(sr_features, axis = [1, 2 ])
+          # hr_features_mu = tf.math.reduce_mean(hr_features, axis = [1, 2 ])
+          
+          sr_features_red = sr_features[: , : , : , :16]
+          hr_features_red = hr_features[: , : , : , :16]
+          
+          kldiv_obj = tf.keras.losses.KLDivergence(reduction = losses_utils.ReductionV2.NONE)
+         
+          per_replica_loss = kldiv_obj(hr_features_red, sr_features_red)
+          
+          kldiv_loss = compute_avg_loss_gpu(per_replica_loss )
+          return kldiv_loss
+    
+def perpix_kldiv_loss(gan_model):
+    with tf.name_scope("PERPIX_KLDIV_Loss_Block"):
+        # Define non-adversarial loss - for example "VGG loss" and "MSE loss"
+    
+        non_adversarial_loss = content_kldiv_loss(gan_model.real_data, gan_model.generated_data)
         
+        non_adversarial_loss_MSE = tf.keras.losses.mean_squared_error(gan_model.real_data, gan_model.generated_data) 
+    
+        # Define generator loss
+        generator_loss_value =  0.001 * generator_loss(gan_model.discriminator_gen_outputs )
+        # generator_loss = tfgan.losses.modified_generator_loss(gan_model)
+    
+        # Combine these losses - you can specify more parameters
+        # Exactly one of weight_factor and gradient_ratio must be non-None
+    
+        combined_loss = non_adversarial_loss + non_adversarial_loss_MSE + generator_loss_value
+    
+        return combined_loss
+
+def srgan_kldiv_loss(gan_model):
+  with tf.name_scope("SRGAN_KLDIV_Loss_Block"):
+    # Define non-adversarial loss - for example "VGG loss" and "MSE loss"
+
+    non_adversarial_loss = content_kldiv_loss(gan_model.real_data, gan_model.generated_data )
+    
+    
+    # Define generator loss
+    generator_loss_value =  0.005 * generator_loss(gan_model.discriminator_gen_outputs )
+    # generator_loss = tfgan.losses.modified_generator_loss(gan_model)
+
+    # Combine these losses - you can specify more parameters
+    # Exactly one of weight_factor and gradient_ratio must be non-None
+
+    combined_loss = non_adversarial_loss + generator_loss_value
+
     return combined_loss
 
     
