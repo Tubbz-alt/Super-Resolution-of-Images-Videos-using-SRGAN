@@ -44,10 +44,24 @@ Models implemented were evaluated in terms of "Pixel quality" and "Perceptual qu
 
 By the end of phase 1, after training the models for 6 epochs (each epoch means training once over the entire dataset), I have obtained the results of PSNR as shown in below figure. From the figure, it can be inferred that model trained with "Perceptual loss" did not reach good PSNR value as seen from the left plot in below figure. On the other hand, model trained with "Per-Pix" loss has started showing good results in terms of PSNR from the first epoch itself (seen from right plot in below figure).
 
+<img src ="downloaded images/sets_results/set5_comparison.png" width = "400" height = "400" /> <img src ="downloaded images/psnr_results/set14_comparison.png" width = "400" height = "400" /> 
 
+***Perceptual quality evaluation:***
 
 To understand the perceptual quality of generated super-resolution images, I have used the low-resolution version of validation images to generate the super-resolution images using both the models trained with "Perceptual Loss" and "Per-Pix Loss". From the figures below, we can infer that "Per-Pix" loss is pushing the model performance significantly resulted in obtaining the images close to the real images. The real high-resolution validation images and their corresponding generated images from both models trained with "Perceptual loss" and "Per-Pix loss" are as shown in below figures:
 
+<img src ="downloaded images/sets_results_images/set5 results/result_images1.png" width = "400" height = "400" /> 
+
+<img src ="downloaded images/sets_results_images/set5 results/result_images1.png" width = "400" height = "400" /> 
+
+<img src ="downloaded images/sets_results_images/set14 results/result_images8.png" width = "400" height = "400" /> 
+
+***Close Observation of images:***
+
+<img src ="downloaded images/tensorboard/mse real.png" width = "400" height = "400" /> <img src ="downloaded images/tensorboard/mse gen.png" width = "400" height = "400" /> 
+
+
+<img src ="downloaded images/tensorboard/perpix real.png" width = "400" height = "400" /> <img src ="downloaded images/tensorboard/perpix gen.png" width = "400" height = "400" /> 
 
 ## References
 
