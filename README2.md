@@ -30,7 +30,7 @@ Now, in second phase of this project, I pickup from the first phase results and 
 Coming to training stage of this project, it requires a huge effort to train these massive models. Thus, all of the training will be done using the Google cloud platform (GCP) AI services and products. During training, I make use of NVIDIA Tesla P100 GPUs with CUDA and cuDNN toolkits to leverage faster training offered by GPUs. As a part of training procedure, I will also create a visualization dashboard consisting of model architecture and results using TensorBoard to better interpret the results while training is in progress. After the training stage, the model will be deployed using google cloud AI platform for future predictions. Also, the best model will be used to super-resolve the videos using a new data pipeline to process the videos. Further, I am planning to deploy the model as an application to real-world users using TensorFlow Lite. Overall, in phase 2, I primarily concentrate on training and deploying the SRGAN model besides doing further research.
 
 
-## Preliminary Results
+## Results
 
 Initially, I have implemented the image preprocessing part of project so that images data fits to our model seamlessly. The steps that I have followed are as follows :
 
@@ -54,6 +54,8 @@ From the tables of figure 9, we can observe that the models implemented here in 
 
 <img src ="downloaded images/psnr_results/set5_comparison.png" width = "400" height = "250" /> <img src ="downloaded images/psnr_results/set14_comparison.png" width = "400" height = "250" /> 
 
+<p align="center"> Figure: Comparison tables of PSNR values (in each table cell) on Set5 and Set14 datasets <p align="center">
+
 ### Perceptual quality evaluation:
 
 To evaluate the perceptual quality of images, I have compared the images generated from both the models with corresponding down-sampled low- resolution and the original high-resolution images. Images for comparison were included below.
@@ -66,16 +68,22 @@ To evaluate the perceptual quality of images, I have compared the images generat
 
 <img src ="downloaded images/sets_results_images/set14 results/result_images8.png" width = "800" height = "300" /> 
 
+<p align="center"> Figure: Down-sampled image, Original image, generated images from MSE and PERPIX trained models (from left to right) <p align="center">
+
+
 #### Close Observation of images:
 
 From figures below, it can be observed that the generated images from MSE trained model are consisting of pixelated boxes, whereas PERPIX trained model’s generated images are more photo-realistic and contain the high-frequency details such as corners around the objects like cups, hands. Also, there are no pixelated boxes as compared to generated images from MSE trained model. Thus, we can infer that the SRGAN model trained with PERPIX loss has started learning the high-frequency details in less number of training steps with more weight towards the VGG loss component of the PERPIX loss.
 
 <img src ="downloaded images/tensorboard/mse real.png" width = "400" height = "500" /> <img src ="downloaded images/tensorboard/mse gen.png" width = "400" height = "500" /> 
 
+<p align="center"> Figure: Original images (on left), generated images from MSE trained model (on right) <p align="center">
 
 <img src ="downloaded images/tensorboard/perpix real.png" width = "400" height = "500" /> <img src ="downloaded images/tensorboard/perpix gen.png" width = "400" height = "500" /> 
 
-To conclude, both in terms of pixel and perceptual qualities, the PERPIX trained model performs better and considered as the best model among two models implemented in this project and showed satisfactory results compared to models from Ledig et al. [2]. PERPIX trained SRGAN model has the potential to balance between smoothening and high-frequency details of images, which is the desirable property in real-world scenarios. 
+<p align="center"> Figure: Original images (on left), generated images from PERPIX trained model (on right) <p align="center">
+
+To conclude, both in terms of pixel and perceptual qualities, the PERPIX trained model performs better and considered as the best model among two models implemented in this project and showed satisfactory results compared to models from Ledig et al. [2] ***(but requires further training)***. PERPIX trained SRGAN model has the potential to balance between smoothening and high-frequency details of images, which is the desirable property in real-world scenarios. 
 
 ***Benefits of PERPIX loss:***
 
@@ -110,9 +118,9 @@ During phase 1 of this project, the model was built and trained for a few traini
 
 ### Status of this project:
 
-All of the mentioned project goals were accomplished successfully and currently working on application development part of this project, and research with deep learning techniques to improve performance is in progress. 
+All of the mentioned project goals were accomplished successfully and currently working on application development part of this project, and research with deep learning techniques to improve performance is ***ongoing*** . 
 
-**Advantages of Super-Resolution:**
+### Advantages of Super-Resolution:
  
 - It saves the storage space of images and provides high resolution images whenever needed
 
