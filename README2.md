@@ -104,9 +104,9 @@ I have trained the models using the Adam optimizer [4] with β1 = 0.9 and learni
 
 During phase 1 of this project, the model was built and trained for a few training steps. In phase 2, GPU training, TensorBoard, other code implementations, and bug fixes were done. Later, the model was trained and deployed in the Google Cloud Platform. The following figure demonstrates the workflow of this project involving various tools. For Google Colab training, the data is taken from Google Drive for training. On the other hand, for Google cloud AI Deep learning VM, data was fetched from Google cloud storage. All the models were implemented using TensorFlow (python) and are compatible to run on different platforms. The trained models were then deployed on to the Google Cloud AI platform. Those deployed models have been used for performing inferences and can be used for future predictions of super- resolution on images or videos.
 
-<img src ="downloaded images/workflow.png" width = "600" height = "600" align = "center" /> 
+<img src ="downloaded images/workflow.png" width = "800" height = "500" align = "center" /> 
 
-<p align="center"> Project Workflow <p align="center">
+<p align="center"> Figure: Project Workflow <p align="center">
 
 ### Status of this project:
 
