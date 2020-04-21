@@ -48,9 +48,9 @@ Models implemented were evaluated in terms of "Pixel quality" and "Perceptual qu
 
 ### Pixel quality evaluation:
 
-To better understand how efficient the models perform, I have compared the results of models implemented in this project with corresponding model results from Ledig et al. [2] using the same datasets, that is, Set5 and Set14 datasets and results were tabulated in the below figure 9. While comparing, MSE and PERPIX trained models in this project are compared with MSE and VGG54 models from Ledig et al. [2] respectively.
+To better understand how efficient the models perform, I have compared the results of models implemented in this project with corresponding model results from Ledig et al. [2] using the same datasets, that is, Set5 and Set14 datasets and results were tabulated in the below figure. While comparing, MSE and PERPIX trained models in this project are compared with MSE and VGG54 models from Ledig et al. [2] respectively.
 
-From the tables of figure 9, we can observe that the models implemented here in this project are performing well-enough considering the number of training steps that models have been trained for. PSNR values obtained were close to the results from Ledig et al. [2] and with further training, these values will improve. From figure 9, another noticeable point is that PSNR value was slightly dropped between MSE and VGG54 trained models (from Ledig et al. [2]) on both datasets. With the PERPIX loss, since we are preserving the pixel quality through the MSE loss component besides the VGG component, we can observe a slight increase in PSNR between MSE and PERPIX trained models (in this project) on both datasets. Thus, the SRGAN model trained with PERPIX loss can be considered as the better choice over the VGG54 (from Ledig et al. [2]) in terms of pixel quality that we have measured through PSNR.
+From the tables of below figure, we can observe that the models implemented here in this project are performing well-enough considering the number of training steps that models have been trained for. PSNR values obtained were close to the results from Ledig et al. [2] and with further training, these values will improve. From the below figure, another noticeable point is that PSNR value was slightly dropped between MSE and VGG54 trained models (from Ledig et al. [2]) on both datasets. With the PERPIX loss, since we are preserving the pixel quality through the MSE loss component besides the VGG component, we can observe a slight increase in PSNR between MSE and PERPIX trained models (in this project) on both datasets. Thus, the SRGAN model trained with PERPIX loss can be considered as the better choice over the VGG54 (from Ledig et al. [2]) in terms of pixel quality that we have measured through PSNR.
 
 <img src ="downloaded images/psnr_results/set5_comparison.png" width = "400" height = "250" /> <img src ="downloaded images/psnr_results/set14_comparison.png" width = "400" height = "250" /> 
 
@@ -58,9 +58,9 @@ From the tables of figure 9, we can observe that the models implemented here in 
 
 ### Perceptual quality evaluation:
 
-To evaluate the perceptual quality of images, I have compared the images generated from both the models with corresponding down-sampled low- resolution and the original high-resolution images. Images for comparison were included below.
+To evaluate the perceptual quality of images, I have compared the images generated from both the models with corresponding down-sampled low- resolution and the original high-resolution images. Images for comparison were included below. we can observe that both SRGAN models are generating better quality images (visually) from the respective down-sampled low- resolution images. However, there is a noticeable difference between generated images and the original high-resolution image.
 
-***Note:*** In the case of PERPIX trained model, this difference can be reduced with further iterations as it can be observed from Ledig et al. [2] that it took almost 2 ∗ 105 training steps to reach notifiable perceptual quality. We can also observe from Ledig et al. [2] that it took 20k iterations to actually diverge from the pre-trained SR-ResNet model (trained with MSE loss) and start learning the high-frequency details.
+***Note:*** In the case of PERPIX trained model, this difference can be reduced with further iterations as it can be observed from Ledig et al. [2] that it took almost 2 ∗ 105 training steps to reach notifiable perceptual quality. We can also observe from Ledig et al. [2] that it took 20k iterations to actually diverge from the pre-trained SR-ResNet model (trained with MSE loss) and start learning the high-frequency details. Thus, ***FURTHER TRAINING IS REQUIRED***.
 
 <img src ="downloaded images/sets_results_images/set5 results/result_images1.png" width = "800" height = "300" /> 
 
@@ -71,7 +71,7 @@ To evaluate the perceptual quality of images, I have compared the images generat
 <p align="center"> Figure: Down-sampled image, Original image, generated images from MSE and PERPIX trained models (from left to right) <p align="center">
 
 
-#### Close Observation of images:
+#### Close Observation of images: (On validation data)
 
 From figures below, it can be observed that the generated images from MSE trained model are consisting of pixelated boxes, whereas PERPIX trained model’s generated images are more photo-realistic and contain the high-frequency details such as corners around the objects like cups, hands. Also, there are no pixelated boxes as compared to generated images from MSE trained model. Thus, we can infer that the SRGAN model trained with PERPIX loss has started learning the high-frequency details in less number of training steps with more weight towards the VGG loss component of the PERPIX loss.
 
@@ -112,7 +112,7 @@ I have trained the models using the Adam optimizer [4] with β1 = 0.9 and learni
 
 During phase 1 of this project, the model was built and trained for a few training steps. In phase 2, GPU training, TensorBoard, other code implementations, and bug fixes were done. Later, the model was trained and deployed in the Google Cloud Platform. The following figure demonstrates the workflow of this project involving various tools. For Google Colab training, the data is taken from Google Drive for training. On the other hand, for Google cloud AI Deep learning VM, data was fetched from Google cloud storage. All the models were implemented using TensorFlow (python) and are compatible to run on different platforms. The trained models were then deployed on to the Google Cloud AI platform. Those deployed models have been used for performing inferences and can be used for future predictions of super- resolution on images or videos.
 
-<img src ="downloaded images/workflow.png" width = "800" height = "500" align = "center" /> 
+<img src ="downloaded images/workflow.png" width = "900" height = "500" align = "center" /> 
 
 <p align="center"> Figure: Project Workflow <p align="center">
 
