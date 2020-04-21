@@ -97,6 +97,32 @@ Now, the trained models (best models in case of MSE and PERPIX losses) were depl
 
 [Deployed Models](https://console.cloud.google.com/ai-platform/models?authuser=3&project=srgan-deploy)
 
+
+### Project Workflow and Training Details:
+
+I have trained the models using the Adam optimizer [4] with β1 = 0.9 and learning rate of 0.0001 for generator and discriminator respectively. For each training step, model training was alternated between the generator and discriminator that is k=1 as described in [1]. In total, I have trained both models (MSE loss and PERPIX loss trained models) for $3.5 * 10^{-4}$ steps (where each step is training over a mini-batch of training data). The figure illustrating the basic workflow of this project is provided below. To describe the workflow, both the models were trained in parallel with NVIDIA Tesla P100 GPUs, one on Google Colaboratory and the other on Google Cloud’s AI platform Deep Learning virtual machine.
+
+During phase 1 of this project, the model was built and trained for a few training steps. In phase 2, GPU training, TensorBoard, other code implementations, and bug fixes were done. Later, the model was trained and deployed in the Google Cloud Platform. The following figure demonstrates the workflow of this project involving various tools. For Google Colab training, the data is taken from Google Drive for training. On the other hand, for Google cloud AI Deep learning VM, data was fetched from Google cloud storage. All the models were implemented using TensorFlow (python) and are compatible to run on different platforms. The trained models were then deployed on to the Google Cloud AI platform. Those deployed models have been used for performing inferences and can be used for future predictions of super- resolution on images or videos.
+
+<img src ="downloaded images/workflow.png" width = "600" height = "600" align = "center" /> 
+
+<p align="center"> Project Workflow <p align="center">
+
+### Status of this project:
+
+All of the mentioned project goals were accomplished successfully and currently working on application development part of this project, and research with deep learning techniques to improve performance is in progress. 
+
+**Advantages of Super-Resolution:**
+ 
+- It saves the storage space of images and provides high resolution images whenever needed
+
+- Adapts to new hardware upgrades(like improved screen resolution of TV, Theatre, etc)
+
+- Make objects to be highly distinguishable in images so that data as whole will be useful for other computer vision tasks through pre-processing or post-processing.
+
+- Satellite Imagery with blurred images
+
+
 ## References
 
 [1] I.Goodfellow, J.Pouget-Abadie, M.Mirza, B.Xu, D.Warde-Farley, S. Ozair, A. Courville, and Y. Bengio. Generative adversarial nets. In Advances in Neural Information Processing Systems (NIPS), pages 2672–2680, 2014.
@@ -123,28 +149,3 @@ Now, the trained models (best models in case of MSE and PERPIX losses) were depl
 [9] C.Y. Yang, C. Ma, and M.H. Yang. Single-image super-resolution:A benchmark. In European Conference on Computer Vision (ECCV), pages 372–386. Springer, 2014.
 
 [10] [Tensorflow-Documentation](https://www.tensorflow.org/)
-
-
-### Project Workflow and Training Details:
-
-I have trained the models using the Adam optimizer [4] with β1 = 0.9 and learning rate of 0.0001 for generator and discriminator respectively. For each training step, model training was alternated between the generator and discriminator that is k=1 as described in [1]. In total, I have trained both models (MSE loss and PERPIX loss trained models) for $3.5 * 10^{-4}$ steps (where each step is training over a mini-batch of training data). The figure illustrating the basic workflow of this project is provided below. To describe the workflow, both the models were trained in parallel with NVIDIA Tesla P100 GPUs, one on Google Colaboratory and the other on Google Cloud’s AI platform Deep Learning virtual machine.
-
-During phase 1 of this project, the model was built and trained for a few training steps. In phase 2, GPU training, TensorBoard, other code implementations, and bug fixes were done. Later, the model was trained and deployed in the Google Cloud Platform. The following figure demonstrates the workflow of this project involving various tools. For Google Colab training, the data is taken from Google Drive for training. On the other hand, for Google cloud AI Deep learning VM, data was fetched from Google cloud storage. All the models were implemented using TensorFlow (python) and are compatible to run on different platforms. The trained models were then deployed on to the Google Cloud AI platform. Those deployed models have been used for performing inferences and can be used for future predictions of super- resolution on images or videos.
-
-<img src ="downloaded images/workflow.png" width = "600" height = "600" align = "center" /> 
-
-<p align="center"> Project Workflow <p align="center">
-
-### Status of this project:
-
-All of the mentioned project goals were accomplished successfully and currently working on application development part of this project, and research with deep learning techniques to improve performance is in progress. 
-
-**Advantages of Super-Resolution:**
- 
-- It saves the storage space of images and provides high resolution images whenever needed
-
-- Adapts to new hardware upgrades(like improved screen resolution of TV, Theatre, etc)
-
-- Make objects to be highly distinguishable in images so that data as whole will be useful for other computer vision tasks through pre-processing or post-processing.
-
-- Satellite Imagery with blurred images
