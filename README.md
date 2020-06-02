@@ -5,6 +5,8 @@
 
 #### *Proposed as "Quantiphi Project"*
 
+### New update on project: Making attempts to change the code compatible with TensorFlow 2.x version and other APIs
+
 ## Summary 
 
 Super-resolution (SR) of images refers to the process of generating or reconstructing the high- resolution (HR) images from low-resolution images (LR). This project mainly focuses on dealing with this problem of super-resolution using the generative adversarial network, named SRGAN, a deep learning framework. In this project, SRGAN was trained and evaluated using 'DIV2K', ‘MS-COCO’ and ‘VID4’ [6] which are the popular datasets for image resolution tasks.
