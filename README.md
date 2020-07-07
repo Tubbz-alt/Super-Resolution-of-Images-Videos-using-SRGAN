@@ -5,7 +5,7 @@
 
 #### *Proposed as "Quantiphi Project"*
 
-### New update on project: Making attempts to change the code compatible with TensorFlow 2.x version and other APIs
+### New update on project: Modified the code to TensorFlow 2.x version compatible and other APIs. Please, look at file starting with "TF2_" and make respective changes to loss function in order to work with different losses. Also, the cross-platform mobile application for this project is included as separate repository @[Application link]( https://github.com/srikanthmandru/TFLite-Flutter-Super-Resolution-App ). Working on different ideas and code for that will not be available here. (Please, contact me for details on research work!!!)
 
 ## Summary 
 
